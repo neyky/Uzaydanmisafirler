@@ -9,125 +9,65 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home:  RegisterView(),
-    );
-  }
-}
+  class LoginPage extended StatelessWidget {
+    const LoginPage({super.key});
 
-class RegisterView extends StatelessWidget {
-  RegisterView({super.key});
+    @override
+    Widget build(BuildContent context) {
+      return Scaffold (
+        backgroundColor: Colors.grey[300],
+        body: SafeArea(
+          child: Center(
+            child: Column(
+              children: const[
+              SizeBox(height: 50),
 
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+              //logo
+              const Icon(
+                Icons.lock,
+                size: 100,
+              )//Icon
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 100,
-              ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.accessibility,size: 40,),
-                  SizedBox(
-                    width: 12,
-                  ),
-                  Text('Cat Lover',style: TextStyle(fontSize:24.5 ),)
-                ],
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              ClipOval(
-                child: Container(
-                  width: 120.0,
-                  height: 120.0,
-                  color: Colors.blue, // You can replace this color with your image
-                  child: Image.network(
-                    'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg',
-                    fit: BoxFit.contain,
-                  ),
+
+              const SizedBox(height: 50),
+
+              //Yeniden hoş geldin
+              Text('Yeniden hoş geldin'
+                style: TextStyle(
+                  color: Colors.grey[700],
+                  FontSize: 16
                 ),
               ),
 
-              const SizedBox(
-                height: 25,
+
+              //Kullanıcı adı
+              TextField(
+                decoration: InputDecoration(
+                enableBorder: OutLineInputBorder(
+                borderSide: BorderSide(color: Colors.white),
               ),
-              const Center(child: Text("Register",style: TextStyle(fontSize:24.5 ),)),
-              const Padding(
-                padding: EdgeInsets.all(16.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                      hintText: "Name & Surname"
-                  ),
+              focusedBorder: OutLineInputBorder(
+                borderSide: BorderSide(color: Colors.grey.shade400),
                 ),
               ),
+              fillcolor
 
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: TextField(
-                  controller: emailController,
-                  decoration: const InputDecoration(
-                      hintText: "Email"
-                  ),
-                ),
-              ),
+              //Şifre
 
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: TextField(
-                  controller: passwordController,
-                  decoration: const InputDecoration(
-                      hintText: "Password"
-                  ),
-                ),
-              ),
+              //Şifreni mi unuttun
 
-              Padding(
-                padding: const EdgeInsets.only(top: 50,),
-                child: SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(onPressed:() async {
-                    print("Burada");
+              //Giriş yap butonu
 
-                    print(emailController.text);
-                    print(passwordController.text);
+              //veya şununla devam et
 
-                    //auth.signInWithEmailAndPassword(email: email, password: password)
+              //Google veya Facebook butonlarí
 
-                  }, child: const Text("Register")),
-                ),
-              ),
+              //Hesabın yok mu => kayıt ol
 
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    IconButton(onPressed: (){}, icon: const Icon(Icons.g_mobiledata,size: 100,)),
-                    IconButton(onPressed: (){}, icon: const Icon(Icons.radio,size: 50,)),
-                  ],
-                ),
-              ),
-              TextButton(onPressed: (){}, child: const Text("Login Here"))
-            ],
-          ),
-        ),
-      ),
-    );
+          ]
+         )
+        )
+      )
+    )
   }
 }
